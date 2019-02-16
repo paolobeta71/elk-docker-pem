@@ -1,0 +1,79 @@
+{
+       "template" : "dns-*",
+        "mappings": {
+            "doc": {
+                "dynamic_templates": [
+                    {
+                        "message_field": {
+                            "mapping": {
+                                "norms": false,
+                                "type": "text"
+                            },
+                            "match_mapping_type": "string",
+                            "path_match": "message"
+                        }
+                    },
+                    {
+                        "string_fields": {
+                            "mapping": {
+                                "fields": {
+                                    "keyword": {
+                                        "ignore_above": 256,
+                                        "type": "keyword"
+                                    }
+                                },
+                                "norms": false,
+                                "type": "text"
+                            },
+                            "match": "*",
+                            "match_mapping_type": "string"
+                        }
+                    }
+                ],
+                "properties": {
+                    "@timestamp": {
+                        "type": "date"
+                    },
+                    "@version": {
+                        "type": "keyword"
+                    },
+                    "geoip": {
+                        "dynamic": true,
+                        "properties": {
+                            "ip": {
+                                "type": "ip"
+                            },
+                            "latitude": {
+                                "type": "half_float"
+                            },
+                            "location": {
+                                "type": "geo_point"
+                            },
+                            "longitude": {
+                                "type": "half_float"
+                            }
+                        }
+                    },
+                    "dns_server_ip": {
+                         "type" : "ip"
+                    },
+                    "server_ip": {
+                         "type" : "ip"
+                    },                    
+                    "src_ip": {
+                         "type" : "ip"
+                    },
+                    "ttl": {
+                         "type" : "integer"
+                    },
+                    "dns_len": {
+                         "type" : "integer"
+                    },
+                    "timestamp" : {
+                         "type" : "date",
+                         "format" : "epoch_second"
+                    }
+                }
+            }
+        }
+}

@@ -1,0 +1,9 @@
+#path.data: /var/lib/elasticsearch
+#
+# Path to log files:
+#
+path.logs: /var/log
+
+network.host: elasticsearch
+
+http.port: 9200

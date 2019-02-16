@@ -1,0 +1,738 @@
+{
+    "index_patterns" : "dpi-*",
+        "mappings": {
+            "doc": {
+                "dynamic_templates": [
+                    {
+                        "message_field": {
+                            "mapping": {
+                                "norms": false,
+                                "type": "text"
+                            },
+                            "match_mapping_type": "string",
+                            "path_match": "message"
+                        }
+                    },
+                    {
+                        "string_fields": {
+                            "mapping": {
+                                "fields": {
+                                    "keyword": {
+                                        "ignore_above": 256,
+                                        "type": "keyword"
+                                    }
+                                },
+                                "norms": false,
+                                "type": "text"
+                            },
+                            "match": "*",
+                            "match_mapping_type": "string"
+                        }
+                    }
+                ],
+                "properties": {
+                    "@timestamp": {
+                        "type": "date"
+                    },
+                    "@version": {
+                        "type": "keyword"
+                    },
+                    "SAI": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "apn": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "application_category_id": {
+                        "type": "integer"
+                    },
+                    "application_category_name": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "called_station_id": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "calling_station_id": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "concurrent_flows": {
+                        "type": "integer"
+                    },
+                    "dest_ip": {
+                        "type": "ip"
+                    },
+                    "dest_port": {
+                        "type": "integer"
+                    },
+                    "dest_port_word": {
+                        "type": "text"
+                    },
+                    "dev": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "duration_sec": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "errdefs_msgno": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "flow_start_msec": {
+                        "type": "integer"
+                    },
+                    "flow_start_sec": {
+                        "type": "integer"
+                    },
+                    "flow_stop_msec": {
+                        "type": "integer"
+                    },
+                    "flow_stop_sec": {
+                        "type": "integer"
+                    },
+                    "host": {
+                        "type": "text"
+                    },
+                    "imeisv": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "imsi": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "ip_protocol": {
+                        "type": "text"
+                    },
+                    "ip_protocol_word": {
+                        "type": "text"
+                    },
+                    "last_record_sent_sec": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "message": {
+                        "type": "text"
+                    },
+                    "new_flows": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "os": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "pem_report_id": {
+                        "type": "integer"
+                    },
+                    "pem_report_version": {
+                        "type": "text"
+                    },
+                    "pem_subscriber_id": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "pem_subscriber_id_type": {
+                        "type": "text"
+                    },
+                    "policy_id": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "port": {
+                        "type": "long"
+                    },
+                    "rat": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "rat_type": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "record_reason": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "record_type": {
+                        "type": "integer"
+                    },
+                    "route_domain": {
+                        "type": "integer"
+                    },
+                    "rule_id": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "source_ip": {
+                        "type": "ip"
+                    },
+                    "source_port": {
+                        "type": "integer"
+                    },
+                    "successful_transactions": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "tags": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "terminated_flows": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "timestamp": {
+                        "format": "epoch_second",
+                        "type": "date"
+                    },
+                    "timestamp_msec": {
+                        "type": "integer"
+                    },
+                    "total_transactions": {
+                        "type": "integer"
+                    },
+                    "url_category_id": {
+                        "type": "integer"
+                    },
+                    "url_category_name": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "type": "text"
+                    },
+                    "user_name": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "vlan_id": {
+                        "type": "integer"
+                    },
+                    "volume_downlink": {
+                        "type": "integer"
+                    },
+                    "volume_uplink": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "order": 0,
+        "settings": {}
+    }{
+    "index_patterns" : "dpi-*",
+        "mappings": {
+            "doc": {
+                "dynamic_templates": [
+                    {
+                        "message_field": {
+                            "mapping": {
+                                "norms": false,
+                                "type": "text"
+                            },
+                            "match_mapping_type": "string",
+                            "path_match": "message"
+                        }
+                    },
+                    {
+                        "string_fields": {
+                            "mapping": {
+                                "fields": {
+                                    "keyword": {
+                                        "ignore_above": 256,
+                                        "type": "keyword"
+                                    }
+                                },
+                                "norms": false,
+                                "type": "text"
+                            },
+                            "match": "*",
+                            "match_mapping_type": "string"
+                        }
+                    }
+                ],
+                "properties": {
+                    "@timestamp": {
+                        "type": "date"
+                    },
+                    "@version": {
+                        "type": "keyword"
+                    },
+                    "SAI": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "apn": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "application_category_id": {
+                        "type": "integer"
+                    },
+                    "application_category_name": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "called_station_id": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "calling_station_id": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "concurrent_flows": {
+                        "type": "integer"
+                    },
+                    "dest_ip": {
+                        "type": "ip"
+                    },
+                    "dest_port": {
+                        "type": "integer"
+                    },
+                    "dest_port_word": {
+                        "type": "text"
+                    },
+                    "dev": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "duration_sec": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "errdefs_msgno": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "flow_start_msec": {
+                        "type": "integer"
+                    },
+                    "flow_start_sec": {
+                        "type": "integer"
+                    },
+                    "flow_stop_msec": {
+                        "type": "integer"
+                    },
+                    "flow_stop_sec": {
+                        "type": "integer"
+                    },
+                    "host": {
+                        "type": "text"
+                    },
+                    "imeisv": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "imsi": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "ip_protocol": {
+                        "type": "text"
+                    },
+                    "ip_protocol_word": {
+                        "type": "text"
+                    },
+                    "last_record_sent_sec": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "message": {
+                        "type": "text"
+                    },
+                    "new_flows": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "os": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "pem_report_id": {
+                        "type": "integer"
+                    },
+                    "pem_report_version": {
+                        "type": "text"
+                    },
+                    "pem_subscriber_id": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "pem_subscriber_id_type": {
+                        "type": "text"
+                    },
+                    "policy_id": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "port": {
+                        "type": "long"
+                    },
+                    "rat": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "rat_type": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "record_reason": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "record_type": {
+                        "type": "integer"
+                    },
+                    "route_domain": {
+                        "type": "integer"
+                    },
+                    "rule_id": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "source_ip": {
+                        "type": "ip"
+                    },
+                    "source_port": {
+                        "type": "integer"
+                    },
+                    "successful_transactions": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "tags": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "terminated_flows": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "timestamp": {
+                        "format": "epoch_second",
+                        "type": "date"
+                    },
+                    "timestamp_msec": {
+                        "type": "integer"
+                    },
+                    "total_transactions": {
+                        "type": "integer"
+                    },
+                    "url_category_id": {
+                        "type": "integer"
+                    },
+                    "url_category_name": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "type": "text"
+                    },
+                    "user_name": {
+                        "fields": {
+                            "raw": {
+                                "ignore_above": 256,
+                                "type": "keyword"
+                            }
+                        },
+                        "norms": false,
+                        "type": "text"
+                    },
+                    "vlan_id": {
+                        "type": "integer"
+                    },
+                    "volume_downlink": {
+                        "type": "integer"
+                    },
+                    "volume_uplink": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "order": 0,
+        "settings": {}
+    }
+

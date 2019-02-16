@@ -1,0 +1,87 @@
+{
+       "template" : "appid-*",
+        "mappings": {
+            "doc": {
+                "dynamic_templates": [
+                    {
+                        "message_field": {
+                            "mapping": {
+                                "norms": false,
+                                "type": "text"
+                            },
+                            "match_mapping_type": "string",
+                            "path_match": "message"
+                        }
+                    },
+                    {
+                        "string_fields": {
+                            "mapping": {
+                                "fields": {
+                                    "keyword": {
+                                        "ignore_above": 256,
+                                        "type": "keyword"
+                                    }
+                                },
+                                "norms": false,
+                                "type": "text"
+                            },
+                            "match": "*",
+                            "match_mapping_type": "string"
+                        }
+                    }
+                ],
+                "properties": {
+                    "@timestamp": {
+                        "type": "date"
+                    },
+                    "@version": {
+                        "type": "keyword"
+                    },
+                    "geoip": {
+                        "dynamic": true,
+                        "properties": {
+                            "ip": {
+                                "type": "ip"
+                            },
+                            "latitude": {
+                                "type": "half_float"
+                            },
+                            "location": {
+                                "type": "geo_point"
+                            },
+                            "longitude": {
+                                "type": "half_float"
+                            }
+                        }
+                    },
+                    "bytes_in": {
+                         "type" : "long"
+                    },
+                    "bytes_out": {
+                         "type" : "long"
+                    },                    
+                    "dest_ip": {
+                         "type" : "ip"
+                    },
+                    "dest_port": {
+                         "type" : "integer"
+                    },
+                    "duration": {
+                         "type" : "long"
+                    },
+                    "port": {
+                         "type" : "integer"
+                    },
+                    "risk": {
+                         "type" : "integer"
+                    },                    
+                    "source_ip": {
+                         "type" : "ip"
+                    },
+                    "source_port": {
+                         "type" : "integer"
+                    }
+                }
+            }
+        }
+}
